@@ -1,0 +1,55 @@
+.center-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: semi-transparent background */
+    z-index: 9999; /* Ensure it is on top */
+}
+
+.privacy-header {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.privacy-subheader {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.privacy-subsubheader {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.privacy-text, .privacy-contact-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.privacy-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.privacy-list-item {
+    margin-bottom: 10px;
+}
+
+.privacy-section {
+    margin-top: 30px;
+}
+
+.privacy-contact {
+    margin-top: 20px;
+}
+
+.row-critical {
+    background-color: rgba(255, 0, 0, 0.5); /* Light red */
+}
+
+.row-info {
+    background-color: rgba(0, 255, 0, 0.5); /* Light green */
+}

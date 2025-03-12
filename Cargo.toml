@@ -1,0 +1,206 @@
+# cargo install --locked cargo-leptos
+
+[package]
+name = "comboboxtest"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+build = "build.rs"
+
+[dependencies]
+instant = "0.1"
+#send_wrapper = "0.6.0"
+#zmq = { version = "0.10", optional = true }
+#zmq-sys = { version = "0.12.0", optional = true }
+#prost = "0.9"
+#prost-types = "0.9"
+#csv = "1"
+axum = { version = "0.7.5", features = ["macros", "ws"], optional = true }
+axum-extra = { version = "0.9.0", features = ["cookie"], optional = true }
+#qrcode = { version = "*" }
+#plotly = { version = "0.8.4", features = ["wasm"] }
+console_error_panic_hook = "0.1"
+console_log = "1"
+cfg-if = "1"
+
+# leptos = { git = "https://github.com/leptos-rs/leptos.git", features = ["hydration"] }
+# leptos_axum = { git = "https://github.com/leptos-rs/leptos.git",  optional = true }
+# leptos_meta = { git = "https://github.com/leptos-rs/leptos.git",  optional = false  }
+# leptos_router = { git = "https://github.com/leptos-rs/leptos.git",  optional = false }
+# leptos_dom = { git = "https://github.com/leptos-rs/leptos.git",  optional = false }
+
+leptos = { version = "0.7.7", features = ["hydration" ] } 
+leptos_meta = { version = "0.7.7", optional = false }
+leptos_axum = { version = "0.7.7", optional = true }
+leptos_router = { version = "0.7.7", optional = false }
+leptos_dom = { version = "0.7.7", optional = false }
+
+log = "0.4"
+url = { version = "2.2.2" }
+simple_logger = "4"
+#sqlx = { version = "0.6.2", features = ["runtime-tokio-rustls", "sqlite", "json"], optional = true }
+tokio = { version = "1.43.0", optional = true }
+tower = { version = "0.4.13", features = ["util"], optional = true }
+tower-http = { version = "0.6.2", features = ["fs", "cors"], optional = true }
+wasm-bindgen = "=0.2.100"
+thiserror = "1.0.38"
+tracing = { version = "0.1.37", optional = true }
+http = "0.2.8"
+serde_json = { version = "1.0", features = ["raw_value"] }
+serde = { version = "1", features = ["derive"] }
+futures = "0.3.25"
+ring = "0.16.19"
+rand = "0.8.0"
+stringprep = "*"
+nom = "7.0.0"
+web-sys ={ version = "0.3.70", features = ["Blob", "BlobPropertyBag", "NotificationPermission", "HtmlDocument", "SvgPathElement", "SvgCircleElement", "SvgGeometryElement"] }
+jsonwebtoken = "8"
+data-encoding = "*"
+reqwest = { version = "0.11", features = ["cookies", "json"] }
+base64 = "0.12"
+pbkdf2 = "0.10"
+hmac = "0.10"
+sha2 = "0.10"
+hex = "*"
+leptos-use = { version = "0.15.3" }
+gloo-storage = "0.2.0"
+regex = "1.5"
+chrono = { version = "0.4", features = ["serde"] }
+icondata = "0.3.0"
+
+# thaw = { version = "0.4", optional = true }
+# thaw_components = { version = "*", optional = true }
+# thaw_macro = { version = "*", optional = true }
+# thaw_utils = { version = "*", optional = true }
+
+thaw = { git = "https://github.com/thaw-ui/thaw.git", branch = "fix/binder-node-ref-tracking", optional = true }
+thaw_components = { git = "https://github.com/thaw-ui/thaw.git", branch = "fix/binder-node-ref-tracking", optional = true }
+thaw_macro = { git = "https://github.com/thaw-ui/thaw.git", branch = "fix/binder-node-ref-tracking", optional = true }
+thaw_utils = { git = "https://github.com/thaw-ui/thaw.git", branch = "fix/binder-node-ref-tracking", optional = true }
+
+
+leptos-struct-table = { branch = "leptos-0.7", git = "https://github.com/Synphonyte/leptos-struct-table.git" }
+
+# thaw = { git = "https://github.com/thaw-ui/thaw.git", optional = true }
+# thaw_components = { git = "https://github.com/thaw-ui/thaw.git", optional = true }
+# thaw_macro = { git = "https://github.com/thaw-ui/thaw.git", optional = true }
+# thaw_utils = { git = "https://github.com/thaw-ui/thaw.git", optional = true }
+
+lettre = { version = "0.11.0", optional = true }
+
+#[patch.crates-io]
+#server_fn_macro = { version = "0.7.0-beta5" }
+
+#[patch.crates-io]
+#rstml = "0.12.0"
+
+[build-dependencies]
+prost-build = "0.9"
+
+[features]
+default = ["ssr"]
+ssr = [
+    #"dep:zmq",
+    #"dep:zmq-sys",
+    #"dep:sqlx",
+    "dep:axum",
+    "dep:axum-extra",
+    "dep:tokio",
+    "dep:tower",
+    "dep:tower-http",
+    "dep:leptos_axum",
+    "leptos/ssr",
+    "thaw/ssr",
+    "thaw_components/ssr",
+    "thaw_utils/ssr",
+    "leptos-use/ssr",
+    #"leptos-use/axum",
+    "leptos/ssr",
+    "leptos_meta/ssr",
+    "leptos_router/ssr",
+    "dep:lettre",
+    "dep:tracing",
+    #"leptos_server_signal/ssr",
+    #"leptos_server_signal/axum",
+]
+hydrate = ["leptos/hydrate", "thaw/hydrate", "thaw_components/hydrate", "thaw_utils/hydrate"]
+
+
+# Defines a size-optimized profile for the WASM bundle in release mode
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[package.metadata.leptos]
+# The name used by wasm-bindgen/cargo-leptos for the JS/WASM bundle. Defaults to the crate name
+output-name = "comboboxtest"
+
+# The site root folder is where cargo-leptos generate all output. WARNING: all content of this folder will be erased on a rebuild. Use it in your server setup.
+site-root = "target/site"
+
+# The site-root relative folder where all compiled output (JS, WASM and CSS) is written
+# Defaults to pkg
+site-pkg-dir = "pkg"
+
+# [Optional] The source CSS file. If it ends with .sass or .scss then it will be compiled by dart-sass into CSS. The CSS is optimized by Lightning CSS before being written to <site-root>/<site-pkg>/app.css
+#style-file = "style/main.scss"
+style-file = "style/generated.css"
+tailwind-input-file = "style/tailwind.css"
+
+# Assets source dir. All files found here will be copied and synchronized to site-root.
+# The assets-dir cannot have a sub directory with the same name/path as site-pkg-dir.
+#
+# Optional. Env: LEPTOS_ASSETS_DIR.
+assets-dir = "public"
+
+# The IP and port (ex: 192.168.22.8:5000) where the server serves the content. Use it in your server setup.
+site-addr = "192.168.22.8:5000"
+#site-addr = "127.0.0.1:5000"
+
+# The port to use for automatic reload monitoring
+reload-port = 5002
+
+# [Optional] Command to use when running end2end tests. It will run in the end2end dir.
+#   [Windows] for non-WSL use "npx.cmd playwright test"
+#   This binary name can be checked in Powershell with Get-Command npx
+end2end-cmd = "npx playwright test"
+end2end-dir = "end2end"
+
+#  The browserlist query used for optimizing the CSS.
+browserquery = "defaults"
+
+# Set by cargo-leptos watch when building with that tool. Controls whether autoreload JS will be included in the head
+watch = false
+
+# The environment Leptos will run in, usually either "DEV" or "PROD"
+env = "DEV"
+
+# The features to use when compiling the bin target
+#
+# Optional. Can be over-ridden with the command line parameter --bin-features
+bin-features = ["ssr"]
+
+# If the --no-default-features flag should be used when compiling the bin target
+#
+# Optional. Defaults to false.
+bin-default-features = false
+
+# The features to use when compiling the lib target
+#
+# Optional. Can be over-ridden with the command line parameter --lib-features
+lib-features = ["hydrate"]
+
+# If the --no-default-features flag should be used when compiling the lib target
+#
+# Optional. Defaults to false.
+lib-default-features = false
+
+# The profile to use for the lib target when compiling for release
+#
+# Optional. Defaults to "release".
+lib-profile-release = "wasm-release"

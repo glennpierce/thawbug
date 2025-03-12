@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.icon-button {
+    min-width: 18px !important;
+    padding: 0px !important;
+    margin: 0px !important; 
+}
+
+.high-zindex, .high-zindex * {
+    position: relative;
+    z-index: 9999;
+}
+
+.tag-gray {
+    @apply bg-gray-100 text-gray-700 border border-gray-300 rounded px-2 py-1 inline-flex items-center;
+}
+.tag-gray:hover {
+    @apply bg-gray-200 border-gray-400; /* Darken the background and border slightly on hover */
+}
+
+.tag-green {
+    @apply bg-green-100 text-green-700 border border-green-300 rounded px-2 py-1 inline-flex items-center;
+}
+.tag-green:hover {
+    @apply bg-green-200 border-green-400;
+}
+
+.tag-orange {
+    @apply bg-orange-100 text-orange-700 border border-orange-300 rounded px-2 py-1 inline-flex items-center;
+}
+.tag-orange:hover {
+    @apply bg-orange-200 border-orange-400;
+}
+
+.tag-red {
+    @apply bg-red-100 text-red-700 border border-red-300 rounded px-2 py-1 inline-flex items-center;
+}
+.tag-red:hover {
+    @apply bg-red-200 border-red-400;
+}
+
+.tag-blue {
+    @apply bg-blue-100 text-blue-700 border border-blue-300 rounded px-2 py-1 inline-flex items-center;
+}
+.tag-blue:hover {
+    @apply bg-blue-200 border-blue-400;
+}
+
+.close-icon-padding {
+    --thaw-padding: 0 2px; /* Override the thaw padding to 0 2px */
+    padding: var(--thaw-padding); /* Apply the custom padding */
+    margin: 0; /* Remove margin */
+    border: 0; /* Remove border */
+}
+
+.js-plotly-plot .plotly .modebar {
+    left: 50%;
+    transform: translateX(-100%);
+}
+
+.js-plotly-plot svg {
+    display: inline;
+  }
+
+/* Style for the main container */
+.hierarchy {
+    padding-left: 20px; /* Add some padding to the left */
+}
+
+/* Style for the list items */
+.hierarchy ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 20px; /* Indent nested lists */
+}
+
+/* Style for the list items */
+.hierarchy li {
+    margin: 5px 0; /* Add some margin between items */
+}
+
+/* Optional: style for clickable items */
+.hierarchy div {
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Optional: style for hovered items */
+.hierarchy div:hover {
+    background-color: #f0f0f0;
+}
+
+.selected {
+    background-color: #d1e7fd; /* Example background color */
+    padding: 5px; /* Optional: add some padding for better visibility */
+    border-radius: 3px; /* Optional: add some border radius for rounded corners */
+}
+
+/* Style for the arrow icons */
+.arrow {
+    display: inline-block;
+    width: 1em;
+    margin-right: 5px;
+    font-size: 1em;
+}
+
+.privacy-header {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.privacy-subheader {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.privacy-subsubheader {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.privacy-text, .privacy-contact-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.privacy-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.privacy-list-item {
+    margin-bottom: 10px;
+}
+
+.privacy-section {
+    margin-top: 30px;
+}
+
+.privacy-contact {
+    margin-top: 20px;
+}
+
+.radio-container {
+    padding: 10px;
+}
