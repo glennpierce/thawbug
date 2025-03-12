@@ -164,7 +164,7 @@ pub fn ReportCreation(
                                         <ReportStyleCombobox report_style=report_form.report_style />
                                         <ReportStyleCombobox report_style=report_form.report_style />
                                         <ReportStyleCombobox report_style=report_form.report_style />
-                                        <ReportStyleCombobox report_style=report_form.report_style />
+                                        // <ReportStyleCombobox report_style=report_form.report_style />
         
                                     </div>
     
